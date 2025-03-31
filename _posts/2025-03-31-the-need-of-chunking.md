@@ -8,5 +8,5 @@ The current dominant assumption on the necessity of chunking is because of limit
 
 As a result, the RAG pipeline usually starts with parsing the file into a long string, then chunks that string into smaller segments, then indexes those segments. This approach has some problems.
 
-If we chunk so that each segment can at most be of LLM context length. Even done correctly, this will be useless, because in the generation step, we have to account for 
+If we chunk so that each segment can at most be of LLM context length. Even done correctly, this will be useless, because in the generation step, we will have to account for user queries, system prompt, and the combined length can be still over the LLM context length. Plus, if we retrieve topk in the retrieval steps, then we don't have enough context length to host the topk segments.
 
