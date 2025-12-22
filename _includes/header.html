@@ -6,15 +6,20 @@
       {%- assign page_paths = site.header_pages | default: default_paths -%}
       <a class="site-symbol" href="{{ "/" | relative_url }}">
         <svg height="38" width="38" class="palm">
-          <circle cx="18" cy="18" r="14" stroke="#111" stroke-width="4" fill-opacity="0.0"/>
+          <circle cx="18" cy="18" r="14" stroke-width="4" fill-opacity="0.0"/>
         </svg>
         <svg height="50" width="50" class="laptop">
-          <circle cx="25" cy="25" r="20" stroke="#111" stroke-width="6" fill-opacity="0.0"/>
+          <circle cx="25" cy="25" r="20" stroke-width="6" fill-opacity="0.0"/>
         </svg>
       </a>
       <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
     </div>
 
-    <div id="theme-toggle"></div>
+    <button id="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            title="Toggle dark mode">
+      <!-- Icon inserted by JavaScript -->
+    </button>
   </div>
 </header>

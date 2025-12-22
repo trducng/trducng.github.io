@@ -10,4 +10,17 @@
     {%- include google-analytics.html -%}
   {%- endif -%}
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Inline script to prevent FOUC (Flash of Unstyled Content) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- Dark mode toggle script -->
+  <script src="{{ '/assets/js/dark-mode.js' | relative_url }}" defer></script>
 </head>

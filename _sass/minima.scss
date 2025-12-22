@@ -20,6 +20,15 @@ $grey-color-light: lighten($grey-color, 40%) !default;
 // $grey-color-dark:  darken($grey-color, 25%) !default;
 $grey-color-dark:  #111 !default;
 
+// Dark mode color variables
+$dark-text-color:       #e4e4e4 !default;
+$dark-background-color: #1a1a1a !default;
+$dark-brand-color:      #5ca7ff !default;
+$dark-grey-color:       #9e9e9e !default;
+$dark-grey-color-light: #3a3a3a !default;
+$dark-grey-color-dark:  #e4e4e4 !default;
+$dark-code-background:  #2d2d2d !default;
+
 $table-text-align: left !default;
 
 // Width of the content area
@@ -45,9 +54,39 @@ $on-laptop:        800px !default;
   font-size: $base-font-size * $ratio;
 }
 
+// CSS Custom Properties for theme switching
+:root {
+  --text-color: #{$text-color};
+  --background-color: #{$background-color};
+  --brand-color: #{$brand-color};
+  --grey-color: #{$grey-color};
+  --grey-color-light: #{$grey-color-light};
+  --grey-color-dark: #{$grey-color-dark};
+  --code-background: #eee;
+  --table-header-bg: #{lighten($grey-color-light, 3%)};
+  --table-row-even-bg: #{lighten($grey-color-light, 6%)};
+  --table-header-border: #{darken($grey-color-light, 4%)};
+  --table-header-border-bottom: #{darken($grey-color-light, 12%)};
+}
+
+[data-theme="dark"] {
+  --text-color: #{$dark-text-color};
+  --background-color: #{$dark-background-color};
+  --brand-color: #{$dark-brand-color};
+  --grey-color: #{$dark-grey-color};
+  --grey-color-light: #{$dark-grey-color-light};
+  --grey-color-dark: #{$dark-grey-color-dark};
+  --code-background: #{$dark-code-background};
+  --table-header-bg: #2a2a2a;
+  --table-row-even-bg: #242424;
+  --table-header-border: #404040;
+  --table-header-border-bottom: #4a4a4a;
+}
+
 // Import partials.
 @import
   "minima/base",
   "minima/layout",
-  "minima/syntax-highlighting-tango"
+  "minima/syntax-highlighting-tango",
+  "minima/syntax-highlighting-dark"
 ;

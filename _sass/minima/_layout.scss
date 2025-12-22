@@ -31,7 +31,7 @@
   &,
   &:visited,
   &:hover {
-    color: $grey-color-dark;
+    color: var(--grey-color-dark);
     text-decoration: none;
   }
 }
@@ -45,6 +45,10 @@
 
   svg {
     vertical-align: middle;
+
+    circle {
+      stroke: var(--grey-color-dark);
+    }
   }
 
   .palm {
@@ -66,30 +70,31 @@
   position: absolute;
   top: - $spacing-unit / 2;
   right: 60px;
-  background-color: red;
   width: 50px;
   height: 50px;
+  background-color: red;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  &:focus {
+    outline: 2px solid var(--text-color);
+    outline-offset: 2px;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 
   @include media-query($on-palm) {
     right: 15px;
   }
 }
-
-/*
-.site-symbol.palm {
-  display: none;
-  @include media-query($on-palm) {
-    display: inline
-  }
-}
-
-.site-symbol.laptop {
-  display: inline;
-  @include media-query($on-palm) {
-    display: none;
-  }
-}
-*/
 
 .site-nav {
   float: right;
@@ -104,7 +109,7 @@
   }
 
   .page-link {
-    color: $text-color;
+    color: var(--text-color);
     line-height: $base-line-height;
 
     // Gaps between nav items, but not on the last one
@@ -117,8 +122,8 @@
     position: absolute;
     top: 9px;
     right: $spacing-unit / 2;
-    background-color: $background-color;
-    border: 1px solid $grey-color-light;
+    background-color: var(--background-color);
+    border: 1px solid var(--grey-color-light);
     border-radius: 5px;
     text-align: right;
 
@@ -141,7 +146,7 @@
       text-align: center;
 
       > svg {
-        fill: $grey-color-dark;
+        fill: var(--grey-color-dark);
       }
     }
 
@@ -190,7 +195,7 @@
 
 .footer-col-wrapper {
   @include relative-font-size(0.9375);
-  color: $grey-color;
+  color: var(--grey-color);
   margin-left: -$spacing-unit / 2;
   @extend %clearfix;
 }
@@ -268,7 +273,7 @@
 
 .post-meta {
   font-size: $small-font-size;
-  color: $grey-color;
+  color: var(--grey-color);
 }
 
 .post-link {
@@ -276,7 +281,7 @@
   &,
   &:hover,
   &:visited {
-    color: #111;
+    color: var(--text-color);
   }
 
   @include relative-font-size(1.0);
