@@ -1,0 +1,156 @@
+/**
+ * Carousel Component
+ *
+ * Explicit carousel for image groups in blog posts.
+ * Usage: Wrap images in <div class="carousel">...</div>
+ */
+
+.carousel {
+  margin-bottom: $spacing-unit;
+  position: relative;
+  max-width: 100%;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @include media-query($on-palm) {
+    gap: 5px;
+  }
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  // Auto-detected aspect ratio from first image
+  // Fallback to 16/9 if JavaScript fails or image doesn't load
+  aspect-ratio: var(--carousel-aspect-ratio, 16 / 9);
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+
+  // Override the global img centering for carousel slides
+  margin: 0;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/**
+ * Navigation Arrows
+ */
+.carousel-nav {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background-color: var(--grey-color-light);
+  border: 1px solid var(--grey-color);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  padding: 0;
+
+  &:hover:not(:disabled) {
+    background-color: var(--grey-color);
+  }
+
+  &:focus {
+    outline: 2px solid var(--brand-color);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-color);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @include media-query($on-palm) {
+    // Remove circle background on mobile to save space
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.5;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: transparent;
+    }
+
+    &:focus {
+      outline: none;
+      svg {
+        stroke: var(--brand-color);
+      }
+    }
+  }
+}
+
+/**
+ * Dot Indicators
+ */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: $spacing-unit / 2;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--grey-color);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(.active) {
+    background-color: var(--grey-color-light);
+  }
+
+  &.active {
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
+  }
+
+  &:focus {
+    outline: 2px solid var(--brand-color);
+    outline-offset: 2px;
+  }
+}

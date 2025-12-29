@@ -5,7 +5,6 @@
   }
 
   .highlight {
-    background: var(--background-color);
     @extend %vertical-rhythm;
 
     .highlight-rouge & {

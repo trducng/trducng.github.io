@@ -299,7 +299,6 @@
 .post-title {
   @include relative-font-size(2);
   letter-spacing: -1px;
-  line-height: 1;
   font-weight: bold;
   font-style: italic;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -314,7 +313,7 @@
   margin-bottom: $spacing-unit;
 
   h2 {
-    @include relative-font-size(2);
+    @include relative-font-size(1.75);
 
     @include media-query($on-laptop) {
       @include relative-font-size(1.75);
