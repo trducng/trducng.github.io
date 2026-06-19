@@ -1,6 +1,16 @@
 Page first version
 
+## Local development
 
+Ruby is pinned to **3.3.4** (matching GitHub Pages) via [mise](https://mise.jdx.dev)
+and `mise.toml` to avoid Ruby version conflict:
+
+```
+brew install mise   # one-time, if not already installed
+make install        # install Ruby 3.3.4 + gems
+make serve          # serve at http://localhost:4000
+make build          # build into _site/
+```
 
 ### favicon
 
